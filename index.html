@@ -1,9 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SISEG Global",
+    "url": "https://sisegglobal.com",
+    "logo": "https://sisegglobal.com/logo.png",
+    "description": "US-based global logistics and 3PL provider specializing in international trade, warehousing, and e-commerce distribution for Latin American markets.",
+    "sameAs": [
+      "https://www.facebook.com/SisegGlobalSolutions",
+      "https://www.instagram.com/siseg_gs/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cross-Border Logistics & 3PL",
+    "serviceType": "Supply Chain Solutions",
+    "provider": {
+      "@type": "Organization",
+      "name": "SISEG Global"
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Mexico" },
+      { "@type": "Country", "name": "USA" },
+      { "@type": "Country", "name": "Argentina" },
+      { "@type": "Country", "name": "Peru" },
+      { "@type": "Country", "name": "Brasil" },
+      { "@type": "Country", "name": "Chile" },
+      { "@type": "Country", "name": "Uruguay" },
+      { "@type": "Country", "name": "Colombia" }
+    ],
+    "description": "Comprehensive 3PL services including warehousing in Miami and distribution across Mexico and Latin America. Experts in Mercado Libre fulfillment and international shipping."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SISEG Global",
+    "url": "https://sisegglobal.com"
+  }
+]
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8CNJ1RVKHH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8CNJ1RVKHH');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Siseg Global Solutions</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -40,6 +102,8 @@
     pointer-events: none;
     z-index: 0;
   }
+  #cookieBanner { display: flex; }
+  html.cookie-set #cookieBanner { display: none !important; }
   .orb {
     position: fixed;
     border-radius: 50%;
@@ -60,9 +124,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(3,12,24,0.75);
+    background: rgba(3,12,24,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0.6rem 1rem; }
+    .logo img { height: 30px !important; width: auto; }
   }
   .logo { text-decoration: none; display: flex; align-items: center; }
   .logo img { height: 52px; width: auto; display: block; border-radius: 10px; }
@@ -391,6 +460,13 @@
   .contact-box p { color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
   .contact-links { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
   .contact-item { display: flex; align-items: center; gap: 1rem; font-size: 0.95rem; }
+  @media (max-width: 600px) {
+    .contact-box { padding: 2rem 1.2rem; }
+    #contactForm div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    .contact-item { flex-direction: row; justify-content: center; align-items: center; }
+    .contact-item .label { min-width: 55px; text-align: right; font-size: 0.75rem; }
+    .contact-links { align-items: center; }
+  }
   .contact-item a { color: var(--accent); text-decoration: none; }
   .contact-item a:hover { text-decoration: underline; }
   .contact-item .label { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; min-width: 80px; text-align: right; }
@@ -398,15 +474,43 @@
   /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
-    padding: 3rem 4rem 7rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 3rem 1.5rem 7rem;
     position: relative;
     z-index: 1;
   }
   .footer-logo img { height: 36px; width: auto; display: block; border-radius: 7px; opacity: 0.85; }
   .footer-text { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+
+  .contact-item .label {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    min-width: 60px;
+    text-align: right;
+  }
 
   /* ANIMATIONS */
   @keyframes fadeUp {
@@ -425,9 +529,27 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 900px) {
-    nav { padding: 0.6rem 1.5rem; }
+    nav {
+      padding: 4px 12px;
+      flex-wrap: nowrap;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      height: 56px;
+      align-items: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
     .nav-links { display: none; }
+    .logo { flex-shrink: 0; }
+    .logo img { height: 32px !important; width: auto !important; }
+    .nav-right { gap: 4px; flex-shrink: 0; margin-left: auto; }
+    .nav-cta { padding: 4px 8px !important; font-size: 0.65rem !important; letter-spacing: 0.03em; white-space: nowrap; }
+    .lang-btn { padding: 4px 6px !important; font-size: 0.65rem !important; }
+    #langLabel { display: none !important; }
+    #langFlag { display: inline !important; font-size: 14px !important; }
     #about, #products, #model, #why, #contact { padding: 5rem 2rem; }
+    #hero { padding-top: 6rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .products-grid { grid-template-columns: 1fr; }
     .model-steps { grid-template-columns: 1fr 1fr; }
@@ -645,7 +767,7 @@
   <h2 data-i18n="contact_h2">Let's Talk Business</h2>
   <div class="contact-box reveal">
     <p data-i18n="contact_p">Whether you're a manufacturer looking for a global distribution partner, a brand seeking market entry, or an investor — we'd love to connect.</p>
-    <form id="contactForm" action="https://formspree.io/info@sisegglobal.com" method="POST" style="text-align:left;margin-top:1rem;">
+    <form id="contactForm" action="https://formspree.io/f/xojkyjkl" method="POST" style="text-align:left;margin-top:1rem;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
         <div>
           <label style="display:block;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;">Name</label>
@@ -675,9 +797,15 @@
       <div id="formMsg" style="display:none;margin-bottom:1rem;font-size:0.88rem;"></div>
       <button type="submit" class="btn-primary" style="cursor:pointer;border:none;width:100%;" data-i18n="contact_btn">Send us a message</button>
     </form>
-    <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:0.6rem;">
-      <div class="contact-item"><span class="label">Email</span><a href="/cdn-cgi/l/email-protection#93fafdf5fcd3e0fae0f6f4f4fffcf1f2ffbdf0fcfe"><span class="__cf_email__" data-cfemail="0960676f66497a607a6c6e6e65666b6865276a6664">[email&#160;protected]</span></a></div>
-      <div class="contact-item"><span class="label">Base</span><span>United States of America</span></div>
+    <div class="contact-info" style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+      <div class="contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:info@sisegglobal.com">info@sisegglobal.com</a>
+      </div>
+      <div class="contact-item">
+          <span class="label">Base</span>
+          <span>United States of America</span>
+      </div>
     </div>
   </div>
 </section>
@@ -691,9 +819,21 @@
       <a href="terms.html" style="font-size:0.78rem;color:var(--muted);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Terms &amp; Conditions</a>
     </div>
   </div>
+  <div style="display:flex;gap:0.8rem;align-items:center;">
+    <a href="https://www.facebook.com/SisegGlobalSolutions" target="_blank" rel="noopener"
+      style="width:38px;height:38px;border-radius:50%;background:#1877f2;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/siseg_gs/" target="_blank" rel="noopener"
+      style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%);display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;"
+      onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const translations = {
   en: {
     nav_about:"About", nav_products:"Products", nav_model:"Model", nav_why:"Why Us", nav_contact:"Contact", nav_cta:"Get in touch",
@@ -836,49 +976,28 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <!-- COOKIE BANNER -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#071428;border-top:1px solid rgba(23,212,232,0.2);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:#071428;border-top:1px solid rgba(23,212,232,0.2);padding:1rem 2rem;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
   <p style="font-size:0.82rem;color:#7eafc9;margin:0;max-width:700px;">
     We use cookies including Google Analytics to understand how visitors use our site. By clicking "Accept", you consent to our use of cookies as described in our
     <a href="privacy.html" style="color:#17d4e8;">Privacy Policy</a>.
   </p>
   <div style="display:flex;gap:0.8rem;flex-shrink:0;">
-    <button onclick="declineCookies()" style="background:transparent;border:1px solid rgba(126,175,201,0.3);color:#7eafc9;padding:0.45rem 1rem;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;">Decline</button>
-    <button onclick="acceptCookies()" style="background:#17d4e8;border:none;color:#030c18;padding:0.45rem 1rem;font-size:0.8rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;">Accept All</button>
+    <button onclick="(function(){var e=new Date();e.setTime(e.getTime()+365*864e5);document.cookie='cookie_consent=declined;expires='+e.toUTCString()+';path=/;SameSite=Lax';document.documentElement.classList.add('cookie-set');})()" style="background:transparent;border:1px solid rgba(126,175,201,0.3);color:#7eafc9;padding:0.45rem 1rem;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;">Decline</button>
+    <button onclick="(function(){var e=new Date();e.setTime(e.getTime()+365*864e5);document.cookie='cookie_consent=accepted;expires='+e.toUTCString()+';path=/;SameSite=Lax';document.documentElement.classList.add('cookie-set');var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');})()" style="background:#17d4e8;border:none;color:#030c18;padding:0.45rem 1rem;font-size:0.8rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;">Accept All</button>
   </div>
 </div>
 
 <script>
 // ── Cookie consent ──
-function setCookie(name,val,days){
-  const d=new Date(); d.setTime(d.getTime()+(days*86400000));
-  document.cookie=name+"="+val+";expires="+d.toUTCString()+";path=/;SameSite=Lax";
-}
-function getCookie(name){
-  const v=document.cookie.split(';').find(c=>c.trim().startsWith(name+'='));
-  return v?v.trim().split('=')[1]:null;
-}
-function loadGA(){
-  const s=document.createElement('script');
-  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // ← Replace with your GA4 ID
-  s.async=true; document.head.appendChild(s);
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date()); gtag('config','G-XXXXXXXXXX'); // ← Replace with your GA4 ID
-}
-function acceptCookies(){
-  setCookie('cookie_consent','accepted',365);
-  document.getElementById('cookieBanner').style.display='none';
-  loadGA();
-}
-function declineCookies(){
-  setCookie('cookie_consent','declined',365);
-  document.getElementById('cookieBanner').style.display='none';
-}
-const consent=getCookie('cookie_consent');
-if(!consent){ document.getElementById('cookieBanner').style.display='flex'; }
-else if(consent==='accepted'){ loadGA(); }
+function getCookie(n){var v=document.cookie.split(';').find(function(c){return c.trim().startsWith(n+'=');});return v?v.trim().split('=')[1]:null;}
+function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+(d*864e5));document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';}
+function loadGA(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');}
+function acceptCookies(){setCookie('cookie_consent','accepted',365);document.documentElement.classList.add('cookie-set');loadGA();}
+function declineCookies(){setCookie('cookie_consent','declined',365);document.documentElement.classList.add('cookie-set');}
+// Run immediately — before page paint
+(function(){if(getCookie('cookie_consent')){document.documentElement.classList.add('cookie-set');if(getCookie('cookie_consent')==='accepted')loadGA();}})();
 
-// ── Contact form (Formspree) ──
+// ── Contact form// ── Contact form (Formspree) ──
 document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const btn=this.querySelector('button[type=submit]');
@@ -892,9 +1011,20 @@ document.getElementById('contactForm').addEventListener('submit', async function
     });
     if(res.ok){
       msg.style.display='block'; msg.style.color='#17d4e8';
-      msg.textContent='✓ Message sent! We will get back to you soon.';
+      msg.textContent = 'Message sent successfully!';
       this.reset();
     } else {
-      throw new Error('Server error');
+      throw new Error();
     }
-  } catch(err){
+  } catch (err) {
+    msg.style.display = 'block';
+    msg.style.color = '#ff4b5c';
+    msg.textContent = 'Oops! There was a problem sending your message.';
+  } finally {
+    btn.textContent = 'SEND US A MESSAGE';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>�
